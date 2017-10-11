@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_ZYRinTqHEeexdPNOK7yxvQ" name="rover">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZYRinjqHEeexdPNOK7yxvQ" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZYRinzqHEeexdPNOK7yxvQ" key="language" value="umlrt-cpp"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Package" xmi:id="_eP9CQDqHEeexdPNOK7yxvQ" name="UMLRT-Rover">
+      <packagedElement xmi:type="uml:Class" xmi:id="_4qJpIDqHEeexdPNOK7yxvQ" name="Rover" isActive="true">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_uY60cDqIEeexdPNOK7yxvQ" name="engine" visibility="public" type="_H8M24DqIEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isConjugated="true"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cHTBwDqJEeexdPNOK7yxvQ" name="engineController" visibility="protected" type="_61_OkDqHEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ctVHADqJEeexdPNOK7yxvQ" name="detectionSensor" visibility="protected" type="_88Q-kDqHEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_veVkEDvrEeexdPNOK7yxvQ" name="detection" visibility="public" type="_asj7EDvnEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isConjugated="true"/>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_kUBLkDqJEeexdPNOK7yxvQ" name="RTConnector1">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_kUK8kDqJEeexdPNOK7yxvQ" role="_uY60cDqIEeexdPNOK7yxvQ"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_kUK8kTqJEeexdPNOK7yxvQ" partWithPort="_cHTBwDqJEeexdPNOK7yxvQ" role="_hCB2YDqJEeexdPNOK7yxvQ"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_98SbYDvrEeexdPNOK7yxvQ" name="RTConnector2">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_98SbYTvrEeexdPNOK7yxvQ" role="_veVkEDvrEeexdPNOK7yxvQ"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_98SbYjvrEeexdPNOK7yxvQ" partWithPort="_ctVHADqJEeexdPNOK7yxvQ" role="_v_nB8DvnEeexdPNOK7yxvQ"/>
+        </ownedConnector>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_61_OkDqHEeexdPNOK7yxvQ" name="EngineController" classifierBehavior="_5XXCgDqJEeexdPNOK7yxvQ" isActive="true">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_hCB2YDqJEeexdPNOK7yxvQ" name="engine" visibility="public" type="_H8M24DqIEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_uuHy8DqJEeexdPNOK7yxvQ" name="timer" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+          <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_vds1wDqJEeexdPNOK7yxvQ" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+          <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Oj4IgDsXEeexdPNOK7yxvQ" name="MOTOR_LEFT_PWM">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_s5ifYDsXEeexdPNOK7yxvQ" value="26"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UdN6cDsXEeexdPNOK7yxvQ" name="MOTOR_LEFT_DIRECTION">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_w1Eg0DsXEeexdPNOK7yxvQ" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XnkWkDsXEeexdPNOK7yxvQ" name="MOTOR_LEFT_ENABLE">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_zbESsDsXEeexdPNOK7yxvQ" value="3"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z737gDsXEeexdPNOK7yxvQ" name="MOTOR_RIGHT_PWM">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_4vlgUDsXEeexdPNOK7yxvQ" value="23"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_cBouIDsXEeexdPNOK7yxvQ" name="MOTOR_RIGHT_DIRECTION">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_7BIFIDsXEeexdPNOK7yxvQ" value="6"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_eQWBYDsXEeexdPNOK7yxvQ" name="MOTOR_RIGHT_ENABLE">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_9fng0DsXEeexdPNOK7yxvQ" value="4"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OlQWwDwCEeexdPNOK7yxvQ" name="timerId">
+          <type xmi:type="uml:Class" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6qkTMGXmEeS_4daqvwyFrg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1RNdEK5nEee2i_lM2fVm4Q" name="MOTOR_SPEED">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_8RDkEK5nEee2i_lM2fVm4Q" value="80"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_5XXCgDqJEeexdPNOK7yxvQ" name="engineControllerStateMachine" visibility="public" isReentrant="false">
+          <region xmi:type="uml:Region" xmi:id="_5XgMcDqJEeexdPNOK7yxvQ" name="Region">
+            <transition xmi:type="uml:Transition" xmi:id="_5Xp9cDqJEeexdPNOK7yxvQ" name="Initial" source="_5XgMcTqJEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_F517IDsYEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.show(&quot;Raspberry PI - Motor controller\n&quot;);&#xD;
+&#xD;
+wiringPiSetup();&#xD;
+&#xD;
+// initializing motors&#xD;
+pinMode(MOTOR_LEFT_ENABLE, OUTPUT);&#xD;
+pinMode(MOTOR_LEFT_DIRECTION, OUTPUT);&#xD;
+softPwmCreate (MOTOR_LEFT_PWM, 0, 100);&#xD;
+&#xD;
+pinMode(MOTOR_RIGHT_ENABLE, OUTPUT);&#xD;
+pinMode(MOTOR_RIGHT_DIRECTION, OUTPUT);&#xD;
+softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
+</body>
+              </effect>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_e-FMMDqKEeexdPNOK7yxvQ" name="move forward" source="_5XgMczqJEeexdPNOK7yxvQ" target="_IReRYDqKEeexdPNOK7yxvQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_sPKAsDqKEeexdPNOK7yxvQ" event="_JyTc4TqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop moving forward" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_KJli4DvlEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>engine.stopped().send();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_ykr_YDqKEeexdPNOK7yxvQ" event="_MkwWYTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_0htFsDqKEeexdPNOK7yxvQ" name="move backwards" source="_5XgMczqJEeexdPNOK7yxvQ" target="_RwzSkDqKEeexdPNOK7yxvQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_G7vYEDqLEeexdPNOK7yxvQ" event="_LUxVMTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_7tjoYDqKEeexdPNOK7yxvQ" name="stop moving backwards" source="_RwzSkDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_LwUQIDvlEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>engine.stopped().send();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_IE4xcDqLEeexdPNOK7yxvQ" event="_MkwWYTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_JzfoUDqLEeexdPNOK7yxvQ" name="turn right" source="_5XgMczqJEeexdPNOK7yxvQ" target="_U2eqEDqKEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_fOEHoDv4EeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>long long nano = angle * 100 /360;&#xD;
+timerId = timer.informIn(UMLRTTimespec(0,nano*10000000));&#xD;
+&#xD;
+log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
+</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_X8wCADqLEeexdPNOK7yxvQ" event="_VbkmETqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="stop turning right" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_OeS5UDvlEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>engine.turnedRight().send();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_a6cAQDs9EeexdPNOK7yxvQ" port="_uuHy8DqJEeexdPNOK7yxvQ">
+                <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+              </trigger>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_RmeccDqLEeexdPNOK7yxvQ" name="turn left" source="_5XgMczqJEeexdPNOK7yxvQ" target="_WhkS4DqKEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_1NtscDwREeeyoMvLODNppw" name="Effect" isReentrant="false">
+                <language>C++</language>
+                <body>long long nano = angle * 100 /360;&#xD;
+timerId = timer.informIn(UMLRTTimespec(0,nano*10000000));&#xD;
+&#xD;
+log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
+</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_ZhqxYDqLEeexdPNOK7yxvQ" event="_OSK6cDqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_TVmQsDqLEeexdPNOK7yxvQ" name="stop turning left" source="_WhkS4DqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XM0vsDvlEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>engine.turnedLeft().send();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_xQwKkK0CEeei7ax9HJsa1g" port="_uuHy8DqJEeexdPNOK7yxvQ">
+                <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+              </trigger>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_5XgMcTqJEeexdPNOK7yxvQ" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_5XgMczqJEeexdPNOK7yxvQ" name="IDLE">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_NcAsEDsYEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.show(&quot;IN Motor Controller- IDLE STATE\n&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 0);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, 0) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 0);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, 0) ;</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_IReRYDqKEeexdPNOK7yxvQ" name="MOVING_FORWARD">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.log(&quot;Engine is moving forward&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARD">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.log(&quot;Engine is moving backward&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.log(&quot;Engine is turning right&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;&#xD;
+//timer.informIn(UMLRTTimespec(1,0));</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_WhkS4DqKEeexdPNOK7yxvQ" name="TURNING_LEFT">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_sihy8DsqEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.log(&quot;Engine is turning left&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+              </entry>
+            </subvertex>
+          </region>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_88Q-kDqHEeexdPNOK7yxvQ" name="DetectionSensor" classifierBehavior="_jhQ1cDvoEeexdPNOK7yxvQ" isActive="true">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_v_nB8DvnEeexdPNOK7yxvQ" name="detection" visibility="public" type="_asj7EDvnEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_x1qkoDvnEeexdPNOK7yxvQ" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+          <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_yy63EDvnEeexdPNOK7yxvQ" name="timer" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+          <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DJK3UDvpEeexdPNOK7yxvQ" name="timerId" visibility="public">
+          <type xmi:type="uml:Class" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6qkTMGXmEeS_4daqvwyFrg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HgUdwDvpEeexdPNOK7yxvQ" name="pinTrig" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hYmqYDvpEeexdPNOK7yxvQ" value="2"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_LuoRQDvpEeexdPNOK7yxvQ" name="pinEcho" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_kKLaIDvpEeexdPNOK7yxvQ" value="0"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_jhQ1cDvoEeexdPNOK7yxvQ" name="detectionSensorStateMachine" isReentrant="false">
+          <region xmi:type="uml:Region" xmi:id="_jhQ1cTvoEeexdPNOK7yxvQ" name="Region">
+            <transition xmi:type="uml:Transition" xmi:id="_jhZ_YjvoEeexdPNOK7yxvQ" name="Initial" source="_jhQ1cjvoEeexdPNOK7yxvQ" target="_jhZ_YDvoEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_-ifKoDvpEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>log.show(&quot;Raspberry PI - Detection Sensor\n&quot;);&#xD;
+&#xD;
+wiringPiSetup();&#xD;
+&#xD;
+// initializing motors&#xD;
+pinMode(pinTrig, OUTPUT);&#xD;
+pinMode(pinEcho, INPUT);</body>
+              </effect>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_2PXTUDvoEeexdPNOK7yxvQ" name="" source="_jhZ_YDvoEeexdPNOK7yxvQ" target="_xVYFkDvoEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_MiUbMDvtEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>digitalWrite(pinTrig, 1);&#xD;
+timerId = timer.informIn(UMLRTTimespec(0,10000));</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_MkGZUDvsEeexdPNOK7yxvQ" event="_iXEvsTvnEeexdPNOK7yxvQ" port="_v_nB8DvnEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_2_KYkDvoEeexdPNOK7yxvQ" source="_xVYFkDvoEeexdPNOK7yxvQ" target="_jhZ_YDvoEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_7FZ3YDv3EeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>timer.cancelTimer(timerId);&#xD;
+log.log(&quot;stop detecting&quot;);
+distanceWindow.clear();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_OCTcsDvsEeexdPNOK7yxvQ" event="_kOj1wTvnEeexdPNOK7yxvQ" port="_v_nB8DvnEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="__cJ8kDv0EeexdPNOK7yxvQ" name="detecting" kind="internal" source="_xVYFkDvoEeexdPNOK7yxvQ" target="_xVYFkDvoEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_yIQBEDv1EeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>  digitalWrite(pinTrig, 1);&#xD;
+  delay(1);&#xD;
+ digitalWrite(pinTrig, 0);&#xD;
+&#xD;
+clock_t pulse_start;&#xD;
+clock_t pulse_end;&#xD;
+double pulse_duration;&#xD;
+&#xD;
+while(true) {&#xD;
+	int value = digitalRead(pinEcho);&#xD;
+        if (value == 0) {&#xD;
+           pulse_start = clock();&#xD;
+        }&#xD;
+        else {&#xD;
+           break;&#xD;
+        }&#xD;
+}&#xD;
+&#xD;
+while(true) {&#xD;
+	int value = digitalRead(pinEcho);&#xD;
+            if (value == 1) {&#xD;
+                pulse_end = clock();&#xD;
+            }&#xD;
+            else {&#xD;
+                break;&#xD;
+            }&#xD;
+}&#xD;
+&#xD;
+pulse_duration = (pulse_end - pulse_start) / (double)(CLOCKS_PER_SEC);&#xD;
+double distance = pulse_duration *17150;
+distanceWindow.add(distance);&#xD;
+detection.obstacleDetected(distanceWindow.median()).send();&#xD;
+
+const long measuringMillis = 60;
+const long measuringNanos = measuringMillis * 1000 * 1000;&#xD;
+timerId = timer.informIn(UMLRTTimespec(0, measuringNanos));</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_DLVkEDv1EeexdPNOK7yxvQ" port="_yy63EDvnEeexdPNOK7yxvQ">
+                <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+              </trigger>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_jhQ1cjvoEeexdPNOK7yxvQ" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_jhZ_YDvoEeexdPNOK7yxvQ" name="IDLE">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ZZi3MDvrEeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>&#xD;
+digitalWrite(pinTrig, 0);</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_xVYFkDvoEeexdPNOK7yxvQ" name="DETECTING"/>
+          </region>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_H8M24TqIEeexdPNOK7yxvQ" name="Engine">
+        <packagedElement xmi:type="uml:Collaboration" xmi:id="_H8M24DqIEeexdPNOK7yxvQ" name="Engine">
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_H8Wn4DqIEeexdPNOK7yxvQ" client="_H8M24DqIEeexdPNOK7yxvQ" supplier="_H8M24zqIEeexdPNOK7yxvQ" contract="_H8M24zqIEeexdPNOK7yxvQ"/>
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_H8Wn5zqIEeexdPNOK7yxvQ" client="_H8M24DqIEeexdPNOK7yxvQ" supplier="_H8Wn5TqIEeexdPNOK7yxvQ" contract="_H8Wn5TqIEeexdPNOK7yxvQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_H8M24zqIEeexdPNOK7yxvQ" name="Engine">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZLM5gDqIEeexdPNOK7yxvQ" name="stopped"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aR8fIDqIEeexdPNOK7yxvQ" name="turnedLeft"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_b_3ZgDqIEeexdPNOK7yxvQ" name="turnedRight"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_H8Wn4TqIEeexdPNOK7yxvQ" name="Engine~">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_JyTc4DqIEeexdPNOK7yxvQ" name="moveForward"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_LUxVMDqIEeexdPNOK7yxvQ" name="moveBackward"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_MkwWYDqIEeexdPNOK7yxvQ" name="stop"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_OSBJcDqIEeexdPNOK7yxvQ" name="turnLeft">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_UhIXEDqIEeexdPNOK7yxvQ" name="angle">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbkmEDqIEeexdPNOK7yxvQ" name="turnRight">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YUCA8DqIEeexdPNOK7yxvQ" name="angle">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_H8Wn4zqIEeexdPNOK7yxvQ" client="_H8M24DqIEeexdPNOK7yxvQ" supplier="_H8Wn4TqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_H8Wn5DqIEeexdPNOK7yxvQ" name="*"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_H8Wn5TqIEeexdPNOK7yxvQ" name="EngineIO"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_H8Wn6DqIEeexdPNOK7yxvQ" client="_H8M24DqIEeexdPNOK7yxvQ" supplier="_H8Wn5TqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_JyTc4TqIEeexdPNOK7yxvQ" operation="_JyTc4DqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_LUxVMTqIEeexdPNOK7yxvQ" operation="_LUxVMDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_MkwWYTqIEeexdPNOK7yxvQ" operation="_MkwWYDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_OSK6cDqIEeexdPNOK7yxvQ" operation="_OSBJcDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_VbkmETqIEeexdPNOK7yxvQ" operation="_VbkmEDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_ZLM5gTqIEeexdPNOK7yxvQ" operation="_ZLM5gDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_aR8fITqIEeexdPNOK7yxvQ" operation="_aR8fIDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_cAAjcDqIEeexdPNOK7yxvQ" operation="_b_3ZgDqIEeexdPNOK7yxvQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_astsEDvnEeexdPNOK7yxvQ" name="Detection">
+        <packagedElement xmi:type="uml:Collaboration" xmi:id="_asj7EDvnEeexdPNOK7yxvQ" name="Detection">
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_astsFDvnEeexdPNOK7yxvQ" client="_asj7EDvnEeexdPNOK7yxvQ" supplier="_astsEjvnEeexdPNOK7yxvQ" contract="_astsEjvnEeexdPNOK7yxvQ"/>
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_astsGzvnEeexdPNOK7yxvQ" client="_asj7EDvnEeexdPNOK7yxvQ" supplier="_astsGTvnEeexdPNOK7yxvQ" contract="_astsGTvnEeexdPNOK7yxvQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_astsEjvnEeexdPNOK7yxvQ" name="Detection">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_nzD3QDvnEeexdPNOK7yxvQ" name="obstacleDetected">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_uaQ0wDvnEeexdPNOK7yxvQ" name="distance">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_astsFTvnEeexdPNOK7yxvQ" name="Detection~">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_iXEvsDvnEeexdPNOK7yxvQ" name="startDetection"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_kOj1wDvnEeexdPNOK7yxvQ" name="stopDetection"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_astsFzvnEeexdPNOK7yxvQ" client="_asj7EDvnEeexdPNOK7yxvQ" supplier="_astsFTvnEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_astsGDvnEeexdPNOK7yxvQ" name="*"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_astsGTvnEeexdPNOK7yxvQ" name="DetectionIO"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_astsHDvnEeexdPNOK7yxvQ" client="_asj7EDvnEeexdPNOK7yxvQ" supplier="_astsGTvnEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_iXEvsTvnEeexdPNOK7yxvQ" operation="_iXEvsDvnEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_kOj1wTvnEeexdPNOK7yxvQ" operation="_kOj1wDvnEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_nzD3QTvnEeexdPNOK7yxvQ" operation="_nzD3QDvnEeexdPNOK7yxvQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_0GkwQDqHEeexdPNOK7yxvQ" name="Top" isActive="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__ZufgDqHEeexdPNOK7yxvQ" name="controlSoftware" visibility="protected" type="_1T0mgDqHEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_AlZBYDqIEeexdPNOK7yxvQ" name="rover" visibility="protected" type="_4qJpIDqHEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite"/>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_0NNHQDqIEeexdPNOK7yxvQ" name="RTConnector1">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_0NgCMDqIEeexdPNOK7yxvQ" partWithPort="__ZufgDqHEeexdPNOK7yxvQ" role="_e09-YDqIEeexdPNOK7yxvQ"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_0NgCMTqIEeexdPNOK7yxvQ" partWithPort="_AlZBYDqIEeexdPNOK7yxvQ" role="_uY60cDqIEeexdPNOK7yxvQ"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_Htl9YDvsEeexdPNOK7yxvQ" name="RTConnector2">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_Htl9YTvsEeexdPNOK7yxvQ" partWithPort="__ZufgDqHEeexdPNOK7yxvQ" role="_FQDj8DvsEeexdPNOK7yxvQ"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_Htl9YjvsEeexdPNOK7yxvQ" partWithPort="_AlZBYDqIEeexdPNOK7yxvQ" role="_veVkEDvrEeexdPNOK7yxvQ"/>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1T0mgDqHEeexdPNOK7yxvQ" name="ControlSoftware" classifierBehavior="_fNTgcDs5EeexdPNOK7yxvQ" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_ESI_8DqIEeexdPNOK7yxvQ" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Fz8J4DqIEeexdPNOK7yxvQ" name="timer" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_e09-YDqIEeexdPNOK7yxvQ" name="engine" visibility="public" type="_H8M24DqIEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isBehavior="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_FQDj8DvsEeexdPNOK7yxvQ" name="detection" visibility="public" type="_asj7EDvnEeexdPNOK7yxvQ" isOrdered="true" aggregation="composite" isBehavior="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PS3LADv_EeexdPNOK7yxvQ" name="threshold">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        <defaultValue xmi:type="uml:LiteralReal" xmi:id="_TYQTEDv_EeexdPNOK7yxvQ" value="30.0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_fNTgcDs5EeexdPNOK7yxvQ" name="ControlSoftwareStateMachine" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_fNnpgDs5EeexdPNOK7yxvQ" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_fNu-QDs5EeexdPNOK7yxvQ" name="Initial" source="_fNpesDs5EeexdPNOK7yxvQ" target="_fNtJEDs5EeexdPNOK7yxvQ"/>
+          <transition xmi:type="uml:Transition" xmi:id="_8akE0Ds5EeexdPNOK7yxvQ" source="_fNtJEDs5EeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_AEzh8Ds6EeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_JwrxYDs6EeexdPNOK7yxvQ" name="lowerThanThreshold" guard="_wTInoDv3EeexdPNOK7yxvQ" source="_2eQecDs5EeexdPNOK7yxvQ" target="_EysNYDs6EeexdPNOK7yxvQ">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_wTInoDv3EeexdPNOK7yxvQ">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_wTInoTv3EeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>return (distance &lt; threshold) &amp;&amp; (distance >= 0);</body>
+              </specification>
+            </ownedRule>
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_0EXdkDv3EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>log.log (&quot;distance less than threshold: %f &lt; %f&quot;, distance, threshold);&#xD;
+detection.stopDetection().send();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_kBGOQDv3EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_d619kDs6EeexdPNOK7yxvQ" source="_EysNYDs6EeexdPNOK7yxvQ" target="_oHWwoDwFEeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_gmRCADs6EeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_nnYUUDs6EeexdPNOK7yxvQ" source="_Up9oEDs6EeexdPNOK7yxvQ" target="_iBRAYDs6EeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_pAy-UDs6EeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_xTl68Ds6EeexdPNOK7yxvQ" source="_iBRAYDs6EeexdPNOK7yxvQ" target="_05sasDwFEeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_0mIpwDs6EeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_ZvXJsDs8EeexdPNOK7yxvQ" source="_qOA_YDs6EeexdPNOK7yxvQ" target="_o86bcDwMEeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_gIaWcDs8EeexdPNOK7yxvQ" event="_cAAjcDqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_n7AUgDv2EeexdPNOK7yxvQ" name="greaterThan" guard="_8JpYEDv2EeexdPNOK7yxvQ" kind="internal" source="_2eQecDs5EeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_8JpYEDv2EeexdPNOK7yxvQ">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_8JpYETv2EeexdPNOK7yxvQ">
+                <language>C++</language>
+                <body>return (distance > threshold) || (distance &lt; 0);</body>
+              </specification>
+            </ownedRule>
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_dSrOcDv3EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_sANPUDv2EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_t3XAYDwFEeexdPNOK7yxvQ" kind="external" source="_oHWwoDwFEeexdPNOK7yxvQ" target="_Up9oEDs6EeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_zURVADwFEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_CSV20DwGEeexdPNOK7yxvQ" kind="external" source="_05sasDwFEeexdPNOK7yxvQ" target="_qOA_YDs6EeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_DZmZ0DwGEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_zQwp0DwMEeexdPNOK7yxvQ" kind="external" source="_o86bcDwMEeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
+            <trigger xmi:type="uml:Trigger" xmi:id="_0oDz8DwMEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_fNpesDs5EeexdPNOK7yxvQ">
+            <name xsi:nil="true"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_fNtJEDs5EeexdPNOK7yxvQ" name="STANDBY">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>  timer.informIn(UMLRTTimespec(4,0));&#xD;
+    log.log (&quot;**ControlSoftware standing by&quot;);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARD">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body> log.log (&quot;**moving forward&quot;);&#xD;
+ engine.moveForward().send();&#xD;
+ detection.startDetection().send();&#xD;
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_EysNYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_FORWARD">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_T_z30Ds6EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>  log.log(&quot;**Stopping moving forwards&quot;);&#xD;
+    engine.stop().send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_Up9oEDs6EeexdPNOK7yxvQ" name="MOVE_BACKWARDS">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>    log.log(&quot;**moving bacwards&quot;);&#xD;
+    engine.moveBackward().send();&#xD;
+    timer.informIn(UMLRTTimespec(1,0));</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_iBRAYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_BACKWARD">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_nOBicDvlEeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>  log.log(&quot;**Stopping moving backwards&quot;);&#xD;
+    engine.stop().send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_qOA_YDs6EeexdPNOK7yxvQ" name="ROTATING">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body>log.log(&quot;**rotating&quot;);&#xD;
+    engine.turnRight(138).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_oHWwoDwFEeexdPNOK7yxvQ" name="TIME_PAUSE">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_xaQfYDwFEeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body> timer.informIn(UMLRTTimespec(2,0));</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_05sasDwFEeexdPNOK7yxvQ" name="TIME_PAUSE_ROTATE">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8xTQIDwFEeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body> timer.informIn(UMLRTTimespec(2,0));</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_o86bcDwMEeexdPNOK7yxvQ" name="TIME_PAUSED">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_u5aPEDwMEeexdPNOK7yxvQ">
+              <language>C++</language>
+              <body> timer.informIn(UMLRTTimespec(2,0));</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ZYRioDqHEeexdPNOK7yxvQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZYRioTqHEeexdPNOK7yxvQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_RT_PROFILE/uml-rt.profile.uml#_1h74oEeVEeO0lv5O1DTHOQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ZYRiojqHEeexdPNOK7yxvQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZYRiozqHEeexdPNOK7yxvQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/statemachine#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_RT_PROFILE/UMLRealTimeSM-addendum.profile.uml#_KLcn0FDtEeOA4ecmvfqvaw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ZYRipDqHEeexdPNOK7yxvQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZYRipTqHEeexdPNOK7yxvQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/cppproperties#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UMLRT_CPP/RTCppProperties.profile.uml#_vl5LALs8EeSTjNEQkASznQ"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLRealTime:Capsule xmi:id="_0IolzDqHEeexdPNOK7yxvQ" base_Class="_0GkwQDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:Capsule xmi:id="_1ULL3DqHEeexdPNOK7yxvQ" base_Class="_1T0mgDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:Capsule xmi:id="_4qmVFjqHEeexdPNOK7yxvQ" base_Class="_4qJpIDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:Capsule xmi:id="_62pV7DqHEeexdPNOK7yxvQ" base_Class="_61_OkDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:Capsule xmi:id="_88oK_DqHEeexdPNOK7yxvQ" base_Class="_88Q-kDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:CapsulePart xmi:id="__Z4QgDqHEeexdPNOK7yxvQ" base_Property="__ZufgDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:CapsulePart xmi:id="_AlZBYTqIEeexdPNOK7yxvQ" base_Property="_AlZBYDqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_ESI_8TqIEeexdPNOK7yxvQ" isWired="false" base_Port="_ESI_8DqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_Fz8J4TqIEeexdPNOK7yxvQ" isWired="false" base_Port="_Fz8J4DqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_H8M24jqIEeexdPNOK7yxvQ" base_Package="_H8M24TqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTMessageSet xmi:id="_H8M25DqIEeexdPNOK7yxvQ" base_Interface="_H8M24zqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTMessageSet xmi:id="_H8Wn4jqIEeexdPNOK7yxvQ" base_Interface="_H8Wn4TqIEeexdPNOK7yxvQ" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_H8Wn5jqIEeexdPNOK7yxvQ" base_Interface="_H8Wn5TqIEeexdPNOK7yxvQ" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_H8Wn6TqIEeexdPNOK7yxvQ" base_Collaboration="_H8M24DqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_e09-YTqIEeexdPNOK7yxvQ" base_Port="_e09-YDqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_uY60cTqIEeexdPNOK7yxvQ" base_Port="_uY60cDqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTConnector xmi:id="_0NgCMjqIEeexdPNOK7yxvQ" base_Connector="_0NNHQDqIEeexdPNOK7yxvQ"/>
+  <UMLRealTime:CapsulePart xmi:id="_cHTBwTqJEeexdPNOK7yxvQ" base_Property="_cHTBwDqJEeexdPNOK7yxvQ"/>
+  <UMLRealTime:CapsulePart xmi:id="_ctVHATqJEeexdPNOK7yxvQ" base_Property="_ctVHADqJEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_hCB2YTqJEeexdPNOK7yxvQ" base_Port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTConnector xmi:id="_kUK8kjqJEeexdPNOK7yxvQ" base_Connector="_kUBLkDqJEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_uuHy8TqJEeexdPNOK7yxvQ" isWired="false" base_Port="_uuHy8DqJEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_vds1wTqJEeexdPNOK7yxvQ" isWired="false" base_Port="_vds1wDqJEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_5XgMcjqJEeexdPNOK7yxvQ" base_Pseudostate="_5XgMcTqJEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_5XgMdDqJEeexdPNOK7yxvQ" base_State="_5XgMczqJEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_5Xp9cTqJEeexdPNOK7yxvQ" base_Region="_5XgMcDqJEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_5YHQcDqJEeexdPNOK7yxvQ" base_StateMachine="_5XXCgDqJEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_IReRYTqKEeexdPNOK7yxvQ" base_State="_IReRYDqKEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_RwzSkTqKEeexdPNOK7yxvQ" base_State="_RwzSkDqKEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_U2pCIDqKEeexdPNOK7yxvQ" base_State="_U2eqEDqKEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_WhuD4DqKEeexdPNOK7yxvQ" base_State="_WhkS4DqKEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_fNrT4Ds5EeexdPNOK7yxvQ" base_Pseudostate="_fNpesDs5EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_fNuXMDs5EeexdPNOK7yxvQ" base_State="_fNtJEDs5EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_fNvlUDs5EeexdPNOK7yxvQ" base_Region="_fNnpgDs5EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_fPG3QDs5EeexdPNOK7yxvQ" base_StateMachine="_fNTgcDs5EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_2eSToDs5EeexdPNOK7yxvQ" base_State="_2eQecDs5EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_EyuCkDs6EeexdPNOK7yxvQ" base_State="_EysNYDs6EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_Up-2MDs6EeexdPNOK7yxvQ" base_State="_Up9oEDs6EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_iBSOgDs6EeexdPNOK7yxvQ" base_State="_iBRAYDs6EeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_qOCNgDs6EeexdPNOK7yxvQ" base_State="_qOA_YDs6EeexdPNOK7yxvQ"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_9imtIDtIEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>" base_Class="_61_OkDqHEeexdPNOK7yxvQ"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_astsETvnEeexdPNOK7yxvQ" base_Package="_astsEDvnEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTMessageSet xmi:id="_astsEzvnEeexdPNOK7yxvQ" base_Interface="_astsEjvnEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTMessageSet xmi:id="_astsFjvnEeexdPNOK7yxvQ" base_Interface="_astsFTvnEeexdPNOK7yxvQ" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_astsGjvnEeexdPNOK7yxvQ" base_Interface="_astsGTvnEeexdPNOK7yxvQ" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_astsHTvnEeexdPNOK7yxvQ" base_Collaboration="_asj7EDvnEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_v_wy8DvnEeexdPNOK7yxvQ" base_Port="_v_nB8DvnEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_x10VoDvnEeexdPNOK7yxvQ" isWired="false" base_Port="_x1qkoDvnEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_yy63ETvnEeexdPNOK7yxvQ" isWired="false" base_Port="_yy63EDvnEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_jhQ1czvoEeexdPNOK7yxvQ" base_Pseudostate="_jhQ1cjvoEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_jhZ_YTvoEeexdPNOK7yxvQ" base_State="_jhZ_YDvoEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_jhZ_YzvoEeexdPNOK7yxvQ" base_Region="_jhQ1cTvoEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_jh2rYDvoEeexdPNOK7yxvQ" base_StateMachine="_jhQ1cDvoEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_xVYFkTvoEeexdPNOK7yxvQ" base_State="_xVYFkDvoEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_veVkETvrEeexdPNOK7yxvQ" base_Port="_veVkEDvrEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTConnector xmi:id="_98SbYzvrEeexdPNOK7yxvQ" base_Connector="_98SbYDvrEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTPort xmi:id="_FQDj8TvsEeexdPNOK7yxvQ" base_Port="_FQDj8DvsEeexdPNOK7yxvQ"/>
+  <UMLRealTime:RTConnector xmi:id="_Htl9YzvsEeexdPNOK7yxvQ" base_Connector="_Htl9YDvsEeexdPNOK7yxvQ"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_zM_akDwAEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>&#xA;#include &lt;iostream>&#xA;#include &lt;vector>&#xA;#include &lt;deque>&#xA;#include &lt;algorithm>&#xA;&#xA;using namespace std;&#xA;&#xA;// TODO How can we define the size of the window in the capsule?&#xA;// TODO Might want to break off this into a library. Inter-project dependencies in CDT?&#xA;&#xA;template&lt;typename T>&#xA;class WindowedMedian {&#xA;&#x9;typedef unsigned int size_type;&#xA;&#x9;typedef typename vector&lt;T>::const_iterator vciterator;&#xA;&#xA;&#x9;vector&lt;T> sorted;&#xA;&#x9;deque&lt;T> unsorted;&#xA;&#xA;public:&#xA;&#x9;WindowedMedian(const size_type capacity) {&#xA;&#x9;&#x9;if (capacity == 0) {&#xA;&#x9;&#x9;&#x9;throw invalid_argument(&quot;capacity cannot be negative: &quot; + capacity);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.reserve(capacity);&#xA;&#x9;}&#xA;&#xA;&#x9;size_type size() const {&#xA;&#x9;&#x9;return sorted.size();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type capacity() const {&#xA;&#x9;&#x9;return sorted.capacity();&#xA;&#x9;}&#xA;&#xA;&#x9;const T&amp; median() const {&#xA;&#x9;&#x9;if (sorted.size() == 0) {&#xA;&#x9;&#x9;&#x9;throw out_of_range(&quot;Window is empty&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return sorted[size() / 2];&#xA;&#x9;}&#xA;&#xA;&#x9;void clear() {&#xA;&#x9;&#x9;sorted.clear();&#xA;&#x9;&#x9;unsorted.clear();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type add(const T e) {&#xA;&#x9;&#x9;// do we need to remove anything?&#xA;&#x9;&#x9;if (size() == capacity()) {&#xA;&#x9;&#x9;&#x9;const T toRemove = unsorted.front();&#xA;&#x9;&#x9;&#x9;unsorted.pop_front();&#xA;&#x9;&#x9;&#x9;const auto range = equal_range(sorted.begin(), sorted.end(), toRemove);&#xA;&#x9;&#x9;&#x9;sorted.erase(range.first);&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;// Add new element to unsorted and sorted lists&#xA;&#x9;&#x9;size_type iFinalPosition = 0;&#xA;&#x9;&#x9;unsorted.push_back(e);&#xA;&#x9;&#x9;vciterator itInsertion = sorted.begin();&#xA;&#x9;&#x9;while (*itInsertion &lt; e &amp;&amp; itInsertion != sorted.end()) {&#xA;&#x9;&#x9;&#x9;itInsertion++;&#xA;&#x9;&#x9;&#x9;iFinalPosition++;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.insert(itInsertion, e);&#xA;&#xA;&#x9;&#x9;return iFinalPosition;&#xA;&#x9;}&#xA;&#xA;&#x9;friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const WindowedMedian&amp; wm) {&#xA;&#x9;&#x9;os &lt;&lt; &quot;WindowedMedian(sorted={&quot;;&#xA;&#xA;&#x9;&#x9;bool first = true;&#xA;&#x9;&#x9;for (const auto i : wm.sorted) {&#xA;&#x9;&#x9;&#x9;if (first) {&#xA;&#x9;&#x9;&#x9;&#x9;first = false;&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;os &lt;&lt; &quot; &quot;;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;os &lt;&lt; i;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;os &lt;&lt; &quot;}, median=&quot; &lt;&lt; wm.median() &lt;&lt; &quot;)&quot;;&#xA;&#xA;&#x9;&#x9;return os;&#xA;&#x9;}&#xA;};&#xA;&#xA;WindowedMedian&lt;double> distanceWindow(5);" base_Class="_88Q-kDqHEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_oHghoDwFEeexdPNOK7yxvQ" base_State="_oHWwoDwFEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_05u28DwFEeexdPNOK7yxvQ" base_State="_05sasDwFEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTState xmi:id="_o9EMcDwMEeexdPNOK7yxvQ" base_State="_o86bcDwMEeexdPNOK7yxvQ"/>
+</xmi:XMI>
