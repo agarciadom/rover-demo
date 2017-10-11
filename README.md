@@ -1,7 +1,7 @@
 Rover demo
 ==========
 
-Example projects for the [Papyrus IC rover](https://wiki.polarsys.org/Rover5_BOM). The main Rover project is based on the one from the [supporting material](http://flux.cs.queensu.ca/mase/papyrus-rt-resources/supporting-material-for-the-models17-tutorial/) from the Papyrus-RT tutorial given at [MoDELS 2017](https://www.cs.utexas.edu/models2017/home).
+Example projects for the [Papyrus IC rover](https://wiki.polarsys.org/Rover5_BOM). The main Rover project is based on the one from the [supporting material](http://flux.cs.queensu.ca/mase/papyrus-rt-resources/supporting-material-for-the-models17-tutorial/) from the Papyrus-RT tutorial given at [MoDELS 2017](https://www.cs.utexas.edu/models2017/home) by Nicolas Hili, Ernesto Posse and Juergen Dingel.
 
 Main changes so far:
 
