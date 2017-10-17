@@ -424,20 +424,6 @@ detection.stopDetection().send();</body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_kBGOQDv3EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_d619kDs6EeexdPNOK7yxvQ" source="_EysNYDs6EeexdPNOK7yxvQ" target="_oHWwoDwFEeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_gmRCADs6EeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_nnYUUDs6EeexdPNOK7yxvQ" source="_Up9oEDs6EeexdPNOK7yxvQ" target="_iBRAYDs6EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_pAy-UDs6EeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_xTl68Ds6EeexdPNOK7yxvQ" source="_iBRAYDs6EeexdPNOK7yxvQ" target="_05sasDwFEeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_0mIpwDs6EeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_ZvXJsDs8EeexdPNOK7yxvQ" source="_qOA_YDs6EeexdPNOK7yxvQ" target="_o86bcDwMEeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_gIaWcDs8EeexdPNOK7yxvQ" event="_cAAjcDqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
-          </transition>
           <transition xmi:type="uml:Transition" xmi:id="_n7AUgDv2EeexdPNOK7yxvQ" name="greaterThan" guard="_8JpYEDv2EeexdPNOK7yxvQ" kind="internal" source="_2eQecDs5EeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_8JpYEDv2EeexdPNOK7yxvQ">
               <specification xmi:type="uml:OpaqueExpression" xmi:id="_8JpYETv2EeexdPNOK7yxvQ">
@@ -450,21 +436,6 @@ detection.stopDetection().send();</body>
               <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);</body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_sANPUDv2EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_t3XAYDwFEeexdPNOK7yxvQ" kind="external" source="_oHWwoDwFEeexdPNOK7yxvQ" target="_Up9oEDs6EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_zURVADwFEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_CSV20DwGEeexdPNOK7yxvQ" kind="external" source="_05sasDwFEeexdPNOK7yxvQ" target="_qOA_YDs6EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_DZmZ0DwGEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
-          </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_zQwp0DwMEeexdPNOK7yxvQ" kind="external" source="_o86bcDwMEeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_0oDz8DwMEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
           </transition>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_fNpesDs5EeexdPNOK7yxvQ">
             <name xsi:nil="true"/>
@@ -490,46 +461,6 @@ detection.stopDetection().send();</body>
               <language>C++</language>
               <body>  log.log(&quot;**Stopping moving forwards&quot;);&#xD;
     engine.stop().send();</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_Up9oEDs6EeexdPNOK7yxvQ" name="MOVE_BACKWARDS">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body>    log.log(&quot;**moving bacwards&quot;);&#xD;
-    engine.moveBackward().send();&#xD;
-    timer.informIn(UMLRTTimespec(1,0));</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_iBRAYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_BACKWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_nOBicDvlEeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body>  log.log(&quot;**Stopping moving backwards&quot;);&#xD;
-    engine.stop().send();</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_qOA_YDs6EeexdPNOK7yxvQ" name="ROTATING">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body>log.log(&quot;**rotating&quot;);&#xD;
-    engine.turnRight(138).send();</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_oHWwoDwFEeexdPNOK7yxvQ" name="TIME_PAUSE">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_xaQfYDwFEeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body> timer.informIn(UMLRTTimespec(2,0));</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_05sasDwFEeexdPNOK7yxvQ" name="TIME_PAUSE_ROTATE">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8xTQIDwFEeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body> timer.informIn(UMLRTTimespec(2,0));</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_o86bcDwMEeexdPNOK7yxvQ" name="TIME_PAUSED">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_u5aPEDwMEeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body> timer.informIn(UMLRTTimespec(2,0));</body>
             </entry>
           </subvertex>
         </region>
@@ -591,9 +522,6 @@ detection.stopDetection().send();</body>
   <UMLRTStateMachines:RTStateMachine xmi:id="_fPG3QDs5EeexdPNOK7yxvQ" base_StateMachine="_fNTgcDs5EeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_2eSToDs5EeexdPNOK7yxvQ" base_State="_2eQecDs5EeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_EyuCkDs6EeexdPNOK7yxvQ" base_State="_EysNYDs6EeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_Up-2MDs6EeexdPNOK7yxvQ" base_State="_Up9oEDs6EeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_iBSOgDs6EeexdPNOK7yxvQ" base_State="_iBRAYDs6EeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_qOCNgDs6EeexdPNOK7yxvQ" base_State="_qOA_YDs6EeexdPNOK7yxvQ"/>
   <RTCppProperties:CapsuleProperties xmi:id="_9imtIDtIEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>" base_Class="_61_OkDqHEeexdPNOK7yxvQ"/>
   <UMLRealTime:ProtocolContainer xmi:id="_astsETvnEeexdPNOK7yxvQ" base_Package="_astsEDvnEeexdPNOK7yxvQ"/>
   <UMLRealTime:RTMessageSet xmi:id="_astsEzvnEeexdPNOK7yxvQ" base_Interface="_astsEjvnEeexdPNOK7yxvQ"/>
@@ -613,7 +541,4 @@ detection.stopDetection().send();</body>
   <UMLRealTime:RTPort xmi:id="_FQDj8TvsEeexdPNOK7yxvQ" base_Port="_FQDj8DvsEeexdPNOK7yxvQ"/>
   <UMLRealTime:RTConnector xmi:id="_Htl9YzvsEeexdPNOK7yxvQ" base_Connector="_Htl9YDvsEeexdPNOK7yxvQ"/>
   <RTCppProperties:CapsuleProperties xmi:id="_zM_akDwAEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>&#xA;#include &lt;iostream>&#xA;#include &lt;vector>&#xA;#include &lt;deque>&#xA;#include &lt;algorithm>&#xA;&#xA;using namespace std;&#xA;&#xA;// TODO How can we define the size of the window in the capsule?&#xA;// TODO Might want to break off this into a library. Inter-project dependencies in CDT?&#xA;&#xA;template&lt;typename T>&#xA;class WindowedMedian {&#xA;&#x9;typedef unsigned int size_type;&#xA;&#x9;typedef typename vector&lt;T>::const_iterator vciterator;&#xA;&#xA;&#x9;vector&lt;T> sorted;&#xA;&#x9;deque&lt;T> unsorted;&#xA;&#xA;public:&#xA;&#x9;WindowedMedian(const size_type capacity) {&#xA;&#x9;&#x9;if (capacity == 0) {&#xA;&#x9;&#x9;&#x9;throw invalid_argument(&quot;capacity cannot be negative: &quot; + capacity);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.reserve(capacity);&#xA;&#x9;}&#xA;&#xA;&#x9;size_type size() const {&#xA;&#x9;&#x9;return sorted.size();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type capacity() const {&#xA;&#x9;&#x9;return sorted.capacity();&#xA;&#x9;}&#xA;&#xA;&#x9;const T&amp; median() const {&#xA;&#x9;&#x9;if (sorted.size() == 0) {&#xA;&#x9;&#x9;&#x9;throw out_of_range(&quot;Window is empty&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return sorted[size() / 2];&#xA;&#x9;}&#xA;&#xA;&#x9;void clear() {&#xA;&#x9;&#x9;sorted.clear();&#xA;&#x9;&#x9;unsorted.clear();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type add(const T e) {&#xA;&#x9;&#x9;// do we need to remove anything?&#xA;&#x9;&#x9;if (size() == capacity()) {&#xA;&#x9;&#x9;&#x9;const T toRemove = unsorted.front();&#xA;&#x9;&#x9;&#x9;unsorted.pop_front();&#xA;&#x9;&#x9;&#x9;const auto range = equal_range(sorted.begin(), sorted.end(), toRemove);&#xA;&#x9;&#x9;&#x9;sorted.erase(range.first);&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;// Add new element to unsorted and sorted lists&#xA;&#x9;&#x9;size_type iFinalPosition = 0;&#xA;&#x9;&#x9;unsorted.push_back(e);&#xA;&#x9;&#x9;vciterator itInsertion = sorted.begin();&#xA;&#x9;&#x9;while (*itInsertion &lt; e &amp;&amp; itInsertion != sorted.end()) {&#xA;&#x9;&#x9;&#x9;itInsertion++;&#xA;&#x9;&#x9;&#x9;iFinalPosition++;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.insert(itInsertion, e);&#xA;&#xA;&#x9;&#x9;return iFinalPosition;&#xA;&#x9;}&#xA;&#xA;&#x9;friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const WindowedMedian&amp; wm) {&#xA;&#x9;&#x9;os &lt;&lt; &quot;WindowedMedian(sorted={&quot;;&#xA;&#xA;&#x9;&#x9;bool first = true;&#xA;&#x9;&#x9;for (const auto i : wm.sorted) {&#xA;&#x9;&#x9;&#x9;if (first) {&#xA;&#x9;&#x9;&#x9;&#x9;first = false;&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;os &lt;&lt; &quot; &quot;;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;os &lt;&lt; i;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;os &lt;&lt; &quot;}, median=&quot; &lt;&lt; wm.median() &lt;&lt; &quot;)&quot;;&#xA;&#xA;&#x9;&#x9;return os;&#xA;&#x9;}&#xA;};&#xA;&#xA;WindowedMedian&lt;double> distanceWindow(5);" base_Class="_88Q-kDqHEeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_oHghoDwFEeexdPNOK7yxvQ" base_State="_oHWwoDwFEeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_05u28DwFEeexdPNOK7yxvQ" base_State="_05sasDwFEeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_o9EMcDwMEeexdPNOK7yxvQ" base_State="_o86bcDwMEeexdPNOK7yxvQ"/>
 </xmi:XMI>
