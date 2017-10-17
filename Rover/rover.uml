@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_ZYRinTqHEeexdPNOK7yxvQ" name="rover">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZYRinjqHEeexdPNOK7yxvQ" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZYRinzqHEeexdPNOK7yxvQ" key="language" value="umlrt-cpp"/>
@@ -78,10 +78,10 @@ softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
 </body>
               </effect>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_e-FMMDqKEeexdPNOK7yxvQ" name="move forward" source="_5XgMczqJEeexdPNOK7yxvQ" target="_IReRYDqKEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_e-FMMDqKEeexdPNOK7yxvQ" name="move forward" source="_5XgMczqJEeexdPNOK7yxvQ" target="_moFGILNtEeec17mNdPma8w">
               <trigger xmi:type="uml:Trigger" xmi:id="_sPKAsDqKEeexdPNOK7yxvQ" event="_JyTc4TqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop moving forward" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop moving forward" source="_moNB8LNtEeec17mNdPma8w" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_KJli4DvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.stopped().send();</body>
@@ -109,7 +109,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_X8wCADqLEeexdPNOK7yxvQ" event="_VbkmETqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="stop turning right" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="timeout" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_OeS5UDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.turnedRight().send();</body>
@@ -138,6 +138,16 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
                 <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
               </trigger>
             </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_f7Zg0LNvEeec17mNdPma8w" name="keep turning right" kind="external" source="_5XgMczqJEeexdPNOK7yxvQ" target="_Zkcl0LNvEeec17mNdPma8w">
+              <trigger xmi:type="uml:Trigger" xmi:id="_i9G-ULNvEeec17mNdPma8w" event="_NRqlkLNvEeec17mNdPma8w" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_ls4XQLNvEeec17mNdPma8w" name="stop turning right" kind="external" source="_Zkcl0LNvEeec17mNdPma8w" target="_5XgMczqJEeexdPNOK7yxvQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Xh1i8LNxEeec17mNdPma8w">
+                <language>C++</language>
+                <body>engine.stopped().send();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_u6NpgLNvEeec17mNdPma8w" event="_MkwWYTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+            </transition>
             <subvertex xmi:type="uml:Pseudostate" xmi:id="_5XgMcTqJEeexdPNOK7yxvQ" name=""/>
             <subvertex xmi:type="uml:State" xmi:id="_5XgMczqJEeexdPNOK7yxvQ" name="IDLE">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_NcAsEDsYEeexdPNOK7yxvQ">
@@ -153,32 +163,50 @@ softPwmWrite (MOTOR_RIGHT_PWM, 0) ;</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_IReRYDqKEeexdPNOK7yxvQ" name="MOVING_FORWARD">
+              <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_moFGILNtEeec17mNdPma8w" kind="entryPoint"/>
+              <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_moNB8LNtEeec17mNdPma8w" kind="exitPoint"/>
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving forward&quot;);&#xD;
+                <body>log.log(&quot;Engine is moving forward at speed %d&quot;, speed0_100);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, speed0_100) ;&#xD;
 &#xD;
 digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+softPwmWrite (MOTOR_RIGHT_PWM, speed0_100) ;</body>
               </entry>
+              <region xmi:type="uml:Region" xmi:id="_mmMPwLNtEeec17mNdPma8w" name="Region1">
+                <transition xmi:type="uml:Transition" xmi:id="_mmOsALNtEeec17mNdPma8w" name="adjustSpeed" kind="internal" source="_IReRYDqKEeexdPNOK7yxvQ" target="_IReRYDqKEeexdPNOK7yxvQ">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_98UBoLNtEeec17mNdPma8w">
+                    <language>C++</language>
+                    <body>log.log(&quot;Engine is adjusting speed to %d&quot;, speed0_100);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, speed0_100) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, speed0_100) ;</body>
+                  </effect>
+                  <trigger xmi:type="uml:Trigger" xmi:id="_1U5f4LNtEeec17mNdPma8w" event="_JyTc4TqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
+                </transition>
+              </region>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARD">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving backward&quot;);&#xD;
+                <body>log.log(&quot;Engine is moving backward at speed %d&quot;, speed0_100);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_LEFT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, speed0_100) ;&#xD;
 &#xD;
 digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+softPwmWrite (MOTOR_RIGHT_PWM, speed0_100) ;</body>
               </entry>
             </subvertex>
-            <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT">
+            <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT_ANGLE">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>log.log(&quot;Engine is turning right&quot;);&#xD;
@@ -188,8 +216,7 @@ softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
 &#xD;
 digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;&#xD;
-//timer.informIn(UMLRTTimespec(1,0));</body>
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_WhkS4DqKEeexdPNOK7yxvQ" name="TURNING_LEFT">
@@ -202,6 +229,19 @@ softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
 &#xD;
 digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
 digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
+softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_Zkcl0LNvEeec17mNdPma8w" name="TURNING_RIGHT">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_eQSC0LNvEeec17mNdPma8w">
+                <language>C++</language>
+                <body>log.log(&quot;Engine is turning right&quot;);&#xD;
+digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
+softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
+&#xD;
+digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
+digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
 softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
               </entry>
             </subvertex>
@@ -325,8 +365,16 @@ digitalWrite(pinTrig, 0);</body>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_b_3ZgDqIEeexdPNOK7yxvQ" name="turnedRight"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_H8Wn4TqIEeexdPNOK7yxvQ" name="Engine~">
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_JyTc4DqIEeexdPNOK7yxvQ" name="moveForward"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_LUxVMDqIEeexdPNOK7yxvQ" name="moveBackward"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_JyTc4DqIEeexdPNOK7yxvQ" name="moveForward">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5JKuoLNgEeec17mNdPma8w" name="speed0_100">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_LUxVMDqIEeexdPNOK7yxvQ" name="moveBackward">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MCF8cLNhEeec17mNdPma8w" name="speed0_100">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_YYWiwByeEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_MkwWYDqIEeexdPNOK7yxvQ" name="stop"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_OSBJcDqIEeexdPNOK7yxvQ" name="turnLeft">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_UhIXEDqIEeexdPNOK7yxvQ" name="angle">
@@ -338,6 +386,7 @@ digitalWrite(pinTrig, 0);</body>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_NRniQLNvEeec17mNdPma8w" name="keepTurningRight"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Usage" xmi:id="_H8Wn4zqIEeexdPNOK7yxvQ" client="_H8M24DqIEeexdPNOK7yxvQ" supplier="_H8Wn4TqIEeexdPNOK7yxvQ"/>
         <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_H8Wn5DqIEeexdPNOK7yxvQ" name="*"/>
@@ -351,6 +400,7 @@ digitalWrite(pinTrig, 0);</body>
         <packagedElement xmi:type="uml:CallEvent" xmi:id="_ZLM5gTqIEeexdPNOK7yxvQ" operation="_ZLM5gDqIEeexdPNOK7yxvQ"/>
         <packagedElement xmi:type="uml:CallEvent" xmi:id="_aR8fITqIEeexdPNOK7yxvQ" operation="_aR8fIDqIEeexdPNOK7yxvQ"/>
         <packagedElement xmi:type="uml:CallEvent" xmi:id="_cAAjcDqIEeexdPNOK7yxvQ" operation="_b_3ZgDqIEeexdPNOK7yxvQ"/>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_NRqlkLNvEeec17mNdPma8w" operation="_NRniQLNvEeec17mNdPma8w"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_astsEDvnEeexdPNOK7yxvQ" name="Detection">
         <packagedElement xmi:type="uml:Collaboration" xmi:id="_asj7EDvnEeexdPNOK7yxvQ" name="Detection">
@@ -432,11 +482,22 @@ detection.stopDetection().send();</body>
               <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
             </trigger>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_xTl68Ds6EeexdPNOK7yxvQ" source="_iBRAYDs6EeexdPNOK7yxvQ" target="_05sasDwFEeexdPNOK7yxvQ">
+          <transition xmi:type="uml:Transition" xmi:id="_xTl68Ds6EeexdPNOK7yxvQ" name="" source="_iBRAYDs6EeexdPNOK7yxvQ" target="_qOA_YDs6EeexdPNOK7yxvQ">
             <trigger xmi:type="uml:Trigger" xmi:id="_0mIpwDs6EeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_ZvXJsDs8EeexdPNOK7yxvQ" source="_qOA_YDs6EeexdPNOK7yxvQ" target="_o86bcDwMEeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_gIaWcDs8EeexdPNOK7yxvQ" event="_cAAjcDqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
+          <transition xmi:type="uml:Transition" xmi:id="_ZvXJsDs8EeexdPNOK7yxvQ" name="all clear" guard="_IyRMoLNwEeec17mNdPma8w" source="_qOA_YDs6EeexdPNOK7yxvQ" target="_o86bcDwMEeexdPNOK7yxvQ">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_IyRMoLNwEeec17mNdPma8w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_IyRMobNwEeec17mNdPma8w">
+                <language>C++</language>
+                <body>return (distance > threshold * 2) || (distance &lt; 0);</body>
+              </specification>
+            </ownedRule>
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Q8gDILNwEeec17mNdPma8w">
+              <language>C++</language>
+              <body>log.log(&quot;** all clear, stop detection&quot;);
+detection.stopDetection().send();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_gIaWcDs8EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
           </transition>
           <transition xmi:type="uml:Transition" xmi:id="_n7AUgDv2EeexdPNOK7yxvQ" name="greaterThan" guard="_8JpYEDv2EeexdPNOK7yxvQ" kind="internal" source="_2eQecDs5EeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_8JpYEDv2EeexdPNOK7yxvQ">
@@ -447,7 +508,15 @@ detection.stopDetection().send();</body>
             </ownedRule>
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_dSrOcDv3EeexdPNOK7yxvQ">
               <language>C++</language>
-              <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);</body>
+              <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);
+
+const int error = distance - threshold;
+const int rawSpeed = 30 + error;
+const unsigned int speed = std::min(90, std::max(0, rawSpeed));
+
+log.log (&quot;**moving forward - adjusting speed to %d&quot;, speed);
+
+engine.moveForward(speed).send();</body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_sANPUDv2EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
           </transition>
@@ -456,19 +525,10 @@ detection.stopDetection().send();</body>
               <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
             </trigger>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_CSV20DwGEeexdPNOK7yxvQ" kind="external" source="_05sasDwFEeexdPNOK7yxvQ" target="_qOA_YDs6EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_DZmZ0DwGEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
-          </transition>
           <transition xmi:type="uml:Transition" xmi:id="_zQwp0DwMEeexdPNOK7yxvQ" kind="external" source="_o86bcDwMEeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
-            <trigger xmi:type="uml:Trigger" xmi:id="_0oDz8DwMEeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
-              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
-            </trigger>
+            <trigger xmi:type="uml:Trigger" xmi:id="_0oDz8DwMEeexdPNOK7yxvQ" event="_ZLM5gTqIEeexdPNOK7yxvQ" port="_e09-YDqIEeexdPNOK7yxvQ"/>
           </transition>
-          <subvertex xmi:type="uml:Pseudostate" xmi:id="_fNpesDs5EeexdPNOK7yxvQ">
-            <name xsi:nil="true"/>
-          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_fNpesDs5EeexdPNOK7yxvQ" name=""/>
           <subvertex xmi:type="uml:State" xmi:id="_fNtJEDs5EeexdPNOK7yxvQ" name="STANDBY">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ">
               <language>C++</language>
@@ -479,9 +539,10 @@ detection.stopDetection().send();</body>
           <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARD">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ">
               <language>C++</language>
-              <body> log.log (&quot;**moving forward&quot;);&#xD;
- engine.moveForward().send();&#xD;
- detection.startDetection().send();&#xD;
+              <body>log.log (&quot;**moving forward&quot;);
+engine.moveForward(50).send();
+detection.startDetection().send();
+
 </body>
             </entry>
           </subvertex>
@@ -496,7 +557,7 @@ detection.stopDetection().send();</body>
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ">
               <language>C++</language>
               <body>    log.log(&quot;**moving bacwards&quot;);&#xD;
-    engine.moveBackward().send();&#xD;
+    engine.moveBackward(50).send();&#xD;
     timer.informIn(UMLRTTimespec(1,0));</body>
             </entry>
           </subvertex>
@@ -511,7 +572,9 @@ detection.stopDetection().send();</body>
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ">
               <language>C++</language>
               <body>log.log(&quot;**rotating&quot;);&#xD;
-    engine.turnRight(138).send();</body>
+//engine.turnRight(138).send();
+detection.startDetection().send();
+engine.keepTurningRight().send();</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_oHWwoDwFEeexdPNOK7yxvQ" name="TIME_PAUSE">
@@ -520,16 +583,10 @@ detection.stopDetection().send();</body>
               <body> timer.informIn(UMLRTTimespec(2,0));</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_05sasDwFEeexdPNOK7yxvQ" name="TIME_PAUSE_ROTATE">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8xTQIDwFEeexdPNOK7yxvQ">
-              <language>C++</language>
-              <body> timer.informIn(UMLRTTimespec(2,0));</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_o86bcDwMEeexdPNOK7yxvQ" name="TIME_PAUSED">
+          <subvertex xmi:type="uml:State" xmi:id="_o86bcDwMEeexdPNOK7yxvQ" name="STOP_ROTATING">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_u5aPEDwMEeexdPNOK7yxvQ">
               <language>C++</language>
-              <body> timer.informIn(UMLRTTimespec(2,0));</body>
+              <body>engine.stop().send();</body>
             </entry>
           </subvertex>
         </region>
@@ -594,7 +651,7 @@ detection.stopDetection().send();</body>
   <UMLRTStateMachines:RTState xmi:id="_Up-2MDs6EeexdPNOK7yxvQ" base_State="_Up9oEDs6EeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_iBSOgDs6EeexdPNOK7yxvQ" base_State="_iBRAYDs6EeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_qOCNgDs6EeexdPNOK7yxvQ" base_State="_qOA_YDs6EeexdPNOK7yxvQ"/>
-  <RTCppProperties:CapsuleProperties xmi:id="_9imtIDtIEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>" base_Class="_61_OkDqHEeexdPNOK7yxvQ"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_9imtIDtIEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>&#xA;&#xA;" base_Class="_61_OkDqHEeexdPNOK7yxvQ"/>
   <UMLRealTime:ProtocolContainer xmi:id="_astsETvnEeexdPNOK7yxvQ" base_Package="_astsEDvnEeexdPNOK7yxvQ"/>
   <UMLRealTime:RTMessageSet xmi:id="_astsEzvnEeexdPNOK7yxvQ" base_Interface="_astsEjvnEeexdPNOK7yxvQ"/>
   <UMLRealTime:RTMessageSet xmi:id="_astsFjvnEeexdPNOK7yxvQ" base_Interface="_astsFTvnEeexdPNOK7yxvQ" rtMsgKind="out"/>
@@ -614,6 +671,10 @@ detection.stopDetection().send();</body>
   <UMLRealTime:RTConnector xmi:id="_Htl9YzvsEeexdPNOK7yxvQ" base_Connector="_Htl9YDvsEeexdPNOK7yxvQ"/>
   <RTCppProperties:CapsuleProperties xmi:id="_zM_akDwAEeexdPNOK7yxvQ" implementationPreface="#include &lt;wiringPi.h>&#xD;&#xA;#include &lt;softPwm.h>&#xA;#include &lt;iostream>&#xA;#include &lt;vector>&#xA;#include &lt;deque>&#xA;#include &lt;algorithm>&#xA;&#xA;using namespace std;&#xA;&#xA;// TODO How can we define the size of the window in the capsule?&#xA;// TODO Might want to break off this into a library. Inter-project dependencies in CDT?&#xA;&#xA;template&lt;typename T>&#xA;class WindowedMedian {&#xA;&#x9;typedef unsigned int size_type;&#xA;&#x9;typedef typename vector&lt;T>::const_iterator vciterator;&#xA;&#xA;&#x9;vector&lt;T> sorted;&#xA;&#x9;deque&lt;T> unsorted;&#xA;&#xA;public:&#xA;&#x9;WindowedMedian(const size_type capacity) {&#xA;&#x9;&#x9;if (capacity == 0) {&#xA;&#x9;&#x9;&#x9;throw invalid_argument(&quot;capacity cannot be negative: &quot; + capacity);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.reserve(capacity);&#xA;&#x9;}&#xA;&#xA;&#x9;size_type size() const {&#xA;&#x9;&#x9;return sorted.size();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type capacity() const {&#xA;&#x9;&#x9;return sorted.capacity();&#xA;&#x9;}&#xA;&#xA;&#x9;const T&amp; median() const {&#xA;&#x9;&#x9;if (sorted.size() == 0) {&#xA;&#x9;&#x9;&#x9;throw out_of_range(&quot;Window is empty&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return sorted[size() / 2];&#xA;&#x9;}&#xA;&#xA;&#x9;void clear() {&#xA;&#x9;&#x9;sorted.clear();&#xA;&#x9;&#x9;unsorted.clear();&#xA;&#x9;}&#xA;&#xA;&#x9;size_type add(const T e) {&#xA;&#x9;&#x9;// do we need to remove anything?&#xA;&#x9;&#x9;if (size() == capacity()) {&#xA;&#x9;&#x9;&#x9;const T toRemove = unsorted.front();&#xA;&#x9;&#x9;&#x9;unsorted.pop_front();&#xA;&#x9;&#x9;&#x9;const auto range = equal_range(sorted.begin(), sorted.end(), toRemove);&#xA;&#x9;&#x9;&#x9;sorted.erase(range.first);&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;// Add new element to unsorted and sorted lists&#xA;&#x9;&#x9;size_type iFinalPosition = 0;&#xA;&#x9;&#x9;unsorted.push_back(e);&#xA;&#x9;&#x9;vciterator itInsertion = sorted.begin();&#xA;&#x9;&#x9;while (*itInsertion &lt; e &amp;&amp; itInsertion != sorted.end()) {&#xA;&#x9;&#x9;&#x9;itInsertion++;&#xA;&#x9;&#x9;&#x9;iFinalPosition++;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;sorted.insert(itInsertion, e);&#xA;&#xA;&#x9;&#x9;return iFinalPosition;&#xA;&#x9;}&#xA;&#xA;&#x9;friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const WindowedMedian&amp; wm) {&#xA;&#x9;&#x9;os &lt;&lt; &quot;WindowedMedian(sorted={&quot;;&#xA;&#xA;&#x9;&#x9;bool first = true;&#xA;&#x9;&#x9;for (const auto i : wm.sorted) {&#xA;&#x9;&#x9;&#x9;if (first) {&#xA;&#x9;&#x9;&#x9;&#x9;first = false;&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;os &lt;&lt; &quot; &quot;;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;os &lt;&lt; i;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;os &lt;&lt; &quot;}, median=&quot; &lt;&lt; wm.median() &lt;&lt; &quot;)&quot;;&#xA;&#xA;&#x9;&#x9;return os;&#xA;&#x9;}&#xA;};&#xA;&#xA;WindowedMedian&lt;double> distanceWindow(5);" base_Class="_88Q-kDqHEeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_oHghoDwFEeexdPNOK7yxvQ" base_State="_oHWwoDwFEeexdPNOK7yxvQ"/>
-  <UMLRTStateMachines:RTState xmi:id="_05u28DwFEeexdPNOK7yxvQ" base_State="_05sasDwFEeexdPNOK7yxvQ"/>
   <UMLRTStateMachines:RTState xmi:id="_o9EMcDwMEeexdPNOK7yxvQ" base_State="_o86bcDwMEeexdPNOK7yxvQ"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_5AvZILNlEeec17mNdPma8w" implementationPreface="#include &lt;algorithm>&#xA;" base_Class="_1T0mgDqHEeexdPNOK7yxvQ"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_mmOE8LNtEeec17mNdPma8w" base_Region="_mmMPwLNtEeec17mNdPma8w"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_moHiYLNtEeec17mNdPma8w" base_Pseudostate="_moFGILNtEeec17mNdPma8w"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_moPeMLNtEeec17mNdPma8w" base_Pseudostate="_moNB8LNtEeec17mNdPma8w"/>
+  <UMLRTStateMachines:RTState xmi:id="_ZkebALNvEeec17mNdPma8w" base_State="_Zkcl0LNvEeec17mNdPma8w"/>
 </xmi:XMI>
