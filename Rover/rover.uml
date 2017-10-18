@@ -60,7 +60,7 @@
         </ownedAttribute>
         <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_5XXCgDqJEeexdPNOK7yxvQ" name="engineControllerStateMachine" visibility="public" isReentrant="false">
           <region xmi:type="uml:Region" xmi:id="_5XgMcDqJEeexdPNOK7yxvQ" name="Region">
-            <transition xmi:type="uml:Transition" xmi:id="_5Xp9cDqJEeexdPNOK7yxvQ" name="Initial" source="_5XgMcTqJEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_5Xp9cDqJEeexdPNOK7yxvQ" name="initial / set up WiringPi" source="_5XgMcTqJEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_F517IDsYEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>log.show(&quot;Raspberry PI - Motor controller\n&quot;);&#xD;
@@ -81,7 +81,7 @@ softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
             <transition xmi:type="uml:Transition" xmi:id="_e-FMMDqKEeexdPNOK7yxvQ" name="move forward" source="_5XgMczqJEeexdPNOK7yxvQ" target="_IReRYDqKEeexdPNOK7yxvQ">
               <trigger xmi:type="uml:Trigger" xmi:id="_sPKAsDqKEeexdPNOK7yxvQ" event="_JyTc4TqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop moving forward" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop / send stopped msg" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_KJli4DvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.stopped().send();</body>
@@ -91,14 +91,14 @@ softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
             <transition xmi:type="uml:Transition" xmi:id="_0htFsDqKEeexdPNOK7yxvQ" name="move backwards" source="_5XgMczqJEeexdPNOK7yxvQ" target="_RwzSkDqKEeexdPNOK7yxvQ">
               <trigger xmi:type="uml:Trigger" xmi:id="_G7vYEDqLEeexdPNOK7yxvQ" event="_LUxVMTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_7tjoYDqKEeexdPNOK7yxvQ" name="stop moving backwards" source="_RwzSkDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_7tjoYDqKEeexdPNOK7yxvQ" name="stop / send stopped msg" source="_RwzSkDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_LwUQIDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.stopped().send();</body>
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_IE4xcDqLEeexdPNOK7yxvQ" event="_MkwWYTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_JzfoUDqLEeexdPNOK7yxvQ" name="turn right" source="_5XgMczqJEeexdPNOK7yxvQ" target="_U2eqEDqKEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_JzfoUDqLEeexdPNOK7yxvQ" name="turn right / set timer" source="_5XgMczqJEeexdPNOK7yxvQ" target="_U2eqEDqKEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_fOEHoDv4EeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>long long nano = angle * 100 /360;&#xD;
@@ -109,7 +109,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_X8wCADqLEeexdPNOK7yxvQ" event="_VbkmETqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="stop turning right" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="timeout / send turned msg" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_OeS5UDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.turnedRight().send();</body>
@@ -118,7 +118,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
                 <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
               </trigger>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_RmeccDqLEeexdPNOK7yxvQ" name="turn left" source="_5XgMczqJEeexdPNOK7yxvQ" target="_WhkS4DqKEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_RmeccDqLEeexdPNOK7yxvQ" name="turn left / set timer" source="_5XgMczqJEeexdPNOK7yxvQ" target="_WhkS4DqKEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_1NtscDwREeeyoMvLODNppw" name="Effect" isReentrant="false">
                 <language>C++</language>
                 <body>long long nano = angle * 100 /360;&#xD;
@@ -129,7 +129,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_ZhqxYDqLEeexdPNOK7yxvQ" event="_OSK6cDqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_TVmQsDqLEeexdPNOK7yxvQ" name="stop turning left" source="_WhkS4DqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_TVmQsDqLEeexdPNOK7yxvQ" name="timeout / send turned msg" source="_WhkS4DqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XM0vsDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.turnedLeft().send();</body>
@@ -140,7 +140,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
             </transition>
             <subvertex xmi:type="uml:Pseudostate" xmi:id="_5XgMcTqJEeexdPNOK7yxvQ" name=""/>
             <subvertex xmi:type="uml:State" xmi:id="_5XgMczqJEeexdPNOK7yxvQ" name="IDLE">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_NcAsEDsYEeexdPNOK7yxvQ">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_NcAsEDsYEeexdPNOK7yxvQ" name="L, R = disabled">
                 <language>C++</language>
                 <body>log.show(&quot;IN Motor Controller- IDLE STATE\n&quot;);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 0);&#xD;
@@ -153,7 +153,7 @@ softPwmWrite (MOTOR_RIGHT_PWM, 0) ;</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_IReRYDqKEeexdPNOK7yxvQ" name="MOVING_FORWARD">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ" name="L, R = forwards">
                 <language>C++</language>
                 <body>log.log(&quot;Engine is moving forward&quot;);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
@@ -166,7 +166,7 @@ softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARD">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ" name="L, R = forwards">
                 <language>C++</language>
                 <body>log.log(&quot;Engine is moving backward&quot;);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
@@ -179,7 +179,7 @@ softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ" name="L = forwards, R = backwards">
                 <language>C++</language>
                 <body>log.log(&quot;Engine is turning right&quot;);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
@@ -193,7 +193,7 @@ softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;&#xD;
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_WhkS4DqKEeexdPNOK7yxvQ" name="TURNING_LEFT">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_sihy8DsqEeexdPNOK7yxvQ">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_sihy8DsqEeexdPNOK7yxvQ" name="L = backwards, R = forwards">
                 <language>C++</language>
                 <body>log.log(&quot;Engine is turning left&quot;);&#xD;
 digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
@@ -410,7 +410,7 @@ digitalWrite(pinTrig, 0);</body>
               <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
             </trigger>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_JwrxYDs6EeexdPNOK7yxvQ" name="lowerThanThreshold" guard="_wTInoDv3EeexdPNOK7yxvQ" source="_2eQecDs5EeexdPNOK7yxvQ" target="_EysNYDs6EeexdPNOK7yxvQ">
+          <transition xmi:type="uml:Transition" xmi:id="_JwrxYDs6EeexdPNOK7yxvQ" name="too close / stop detection" guard="_wTInoDv3EeexdPNOK7yxvQ" source="_2eQecDs5EeexdPNOK7yxvQ" target="_EysNYDs6EeexdPNOK7yxvQ">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_wTInoDv3EeexdPNOK7yxvQ">
               <specification xmi:type="uml:OpaqueExpression" xmi:id="_wTInoTv3EeexdPNOK7yxvQ">
                 <language>C++</language>
@@ -441,14 +441,14 @@ detection.stopDetection().send();</body>
             <name xsi:nil="true"/>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_fNtJEDs5EeexdPNOK7yxvQ" name="STANDBY">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ" name="wait 4 seconds">
               <language>C++</language>
               <body>  timer.informIn(UMLRTTimespec(4,0));&#xD;
     log.log (&quot;**ControlSoftware standing by&quot;);</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ" name="start motor and detector">
               <language>C++</language>
               <body> log.log (&quot;**moving forward&quot;);&#xD;
  engine.moveForward().send();&#xD;
@@ -457,7 +457,7 @@ detection.stopDetection().send();</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_EysNYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_FORWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_T_z30Ds6EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_T_z30Ds6EeexdPNOK7yxvQ" name="stop motor">
               <language>C++</language>
               <body>  log.log(&quot;**Stopping moving forwards&quot;);&#xD;
     engine.stop().send();</body>
