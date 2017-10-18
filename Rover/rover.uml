@@ -404,13 +404,13 @@ digitalWrite(pinTrig, 0);</body>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_fNTgcDs5EeexdPNOK7yxvQ" name="ControlSoftwareStateMachine" isReentrant="false">
         <region xmi:type="uml:Region" xmi:id="_fNnpgDs5EeexdPNOK7yxvQ" name="Region">
-          <transition xmi:type="uml:Transition" xmi:id="_fNu-QDs5EeexdPNOK7yxvQ" name="Initial" source="_fNpesDs5EeexdPNOK7yxvQ" target="_fNtJEDs5EeexdPNOK7yxvQ"/>
+          <transition xmi:type="uml:Transition" xmi:id="_fNu-QDs5EeexdPNOK7yxvQ" name="initial" source="_fNpesDs5EeexdPNOK7yxvQ" target="_fNtJEDs5EeexdPNOK7yxvQ"/>
           <transition xmi:type="uml:Transition" xmi:id="_8akE0Ds5EeexdPNOK7yxvQ" source="_fNtJEDs5EeexdPNOK7yxvQ" target="_2eQecDs5EeexdPNOK7yxvQ">
             <trigger xmi:type="uml:Trigger" xmi:id="_AEzh8Ds6EeexdPNOK7yxvQ" port="_Fz8J4DqIEeexdPNOK7yxvQ">
               <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
             </trigger>
           </transition>
-          <transition xmi:type="uml:Transition" xmi:id="_JwrxYDs6EeexdPNOK7yxvQ" name="lowerThanThreshold" guard="_wTInoDv3EeexdPNOK7yxvQ" source="_2eQecDs5EeexdPNOK7yxvQ" target="_EysNYDs6EeexdPNOK7yxvQ">
+          <transition xmi:type="uml:Transition" xmi:id="_JwrxYDs6EeexdPNOK7yxvQ" name="too close / stop detection" guard="_wTInoDv3EeexdPNOK7yxvQ" source="_2eQecDs5EeexdPNOK7yxvQ" target="_EysNYDs6EeexdPNOK7yxvQ">
             <ownedRule xmi:type="uml:Constraint" xmi:id="_wTInoDv3EeexdPNOK7yxvQ">
               <specification xmi:type="uml:OpaqueExpression" xmi:id="_wTInoTv3EeexdPNOK7yxvQ">
                 <language>C++</language>
@@ -470,14 +470,14 @@ detection.stopDetection().send();</body>
             <name xsi:nil="true"/>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_fNtJEDs5EeexdPNOK7yxvQ" name="STANDBY">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_1x6V0Ds5EeexdPNOK7yxvQ" name="wait 4 seconds">
               <language>C++</language>
               <body>  timer.informIn(UMLRTTimespec(4,0));&#xD;
     log.log (&quot;**ControlSoftware standing by&quot;);</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ">
+          <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARDS">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ" name="start motor and detection">
               <language>C++</language>
               <body> log.log (&quot;**moving forward&quot;);&#xD;
  engine.moveForward().send();&#xD;
@@ -485,49 +485,49 @@ detection.stopDetection().send();</body>
 </body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_EysNYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_FORWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_T_z30Ds6EeexdPNOK7yxvQ">
+          <subvertex xmi:type="uml:State" xmi:id="_EysNYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_FORWARDS">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_T_z30Ds6EeexdPNOK7yxvQ" name="stop motor">
               <language>C++</language>
               <body>  log.log(&quot;**Stopping moving forwards&quot;);&#xD;
     engine.stop().send();</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_Up9oEDs6EeexdPNOK7yxvQ" name="MOVE_BACKWARDS">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ" name="go backwards, wait 1 second">
               <language>C++</language>
               <body>    log.log(&quot;**moving bacwards&quot;);&#xD;
     engine.moveBackward().send();&#xD;
     timer.informIn(UMLRTTimespec(1,0));</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_iBRAYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_BACKWARD">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_nOBicDvlEeexdPNOK7yxvQ">
+          <subvertex xmi:type="uml:State" xmi:id="_iBRAYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_BACKWARDS">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_nOBicDvlEeexdPNOK7yxvQ" name="stop motor">
               <language>C++</language>
               <body>  log.log(&quot;**Stopping moving backwards&quot;);&#xD;
     engine.stop().send();</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_qOA_YDs6EeexdPNOK7yxvQ" name="ROTATING">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ" name="turn 138 degrees">
               <language>C++</language>
               <body>log.log(&quot;**rotating&quot;);&#xD;
     engine.turnRight(138).send();</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_oHWwoDwFEeexdPNOK7yxvQ" name="TIME_PAUSE">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_xaQfYDwFEeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_xaQfYDwFEeexdPNOK7yxvQ" name="wait 2 seconds">
               <language>C++</language>
               <body> timer.informIn(UMLRTTimespec(2,0));</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_05sasDwFEeexdPNOK7yxvQ" name="TIME_PAUSE_ROTATE">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8xTQIDwFEeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8xTQIDwFEeexdPNOK7yxvQ" name="wait 2 seconds">
               <language>C++</language>
               <body> timer.informIn(UMLRTTimespec(2,0));</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_o86bcDwMEeexdPNOK7yxvQ" name="TIME_PAUSED">
-            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_u5aPEDwMEeexdPNOK7yxvQ">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_u5aPEDwMEeexdPNOK7yxvQ" name="wait 2s">
               <language>C++</language>
               <body> timer.informIn(UMLRTTimespec(2,0));</body>
             </entry>
