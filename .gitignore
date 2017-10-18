@@ -1,1 +1,11 @@
 Debug
+/.metadata/
+*.aux
+*.toc
+*.log
+*.out
+*.dvi
+*.fdb*
+*.nav
+*.fls
+*.snm
