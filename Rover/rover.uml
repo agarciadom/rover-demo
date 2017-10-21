@@ -81,7 +81,7 @@ softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
             <transition xmi:type="uml:Transition" xmi:id="_e-FMMDqKEeexdPNOK7yxvQ" name="move forward" source="_5XgMczqJEeexdPNOK7yxvQ" target="_IReRYDqKEeexdPNOK7yxvQ">
               <trigger xmi:type="uml:Trigger" xmi:id="_sPKAsDqKEeexdPNOK7yxvQ" event="_JyTc4TqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop / send stopped msg" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_jWq9EDqKEeexdPNOK7yxvQ" name="stop going forward / send stopped msg" source="_IReRYDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_KJli4DvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.stopped().send();</body>
@@ -91,7 +91,7 @@ softPwmCreate (MOTOR_RIGHT_PWM, 0, 100);&#xD;
             <transition xmi:type="uml:Transition" xmi:id="_0htFsDqKEeexdPNOK7yxvQ" name="move backwards" source="_5XgMczqJEeexdPNOK7yxvQ" target="_RwzSkDqKEeexdPNOK7yxvQ">
               <trigger xmi:type="uml:Trigger" xmi:id="_G7vYEDqLEeexdPNOK7yxvQ" event="_LUxVMTqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_7tjoYDqKEeexdPNOK7yxvQ" name="stop / send stopped msg" source="_RwzSkDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_7tjoYDqKEeexdPNOK7yxvQ" name="stop going backwards / send stopped msg" source="_RwzSkDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_LwUQIDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.stopped().send();</body>
@@ -109,7 +109,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_X8wCADqLEeexdPNOK7yxvQ" event="_VbkmETqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="timeout / send turned msg" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_Oc7RkDqLEeexdPNOK7yxvQ" name="timeout R / send turned msg" source="_U2eqEDqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_OeS5UDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.turnedRight().send();</body>
@@ -129,7 +129,7 @@ log.log (&quot;********nano pulse duration is %llu&quot;, nano);&#xD;
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_ZhqxYDqLEeexdPNOK7yxvQ" event="_OSK6cDqIEeexdPNOK7yxvQ" port="_hCB2YDqJEeexdPNOK7yxvQ"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_TVmQsDqLEeexdPNOK7yxvQ" name="timeout / send turned msg" source="_WhkS4DqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
+            <transition xmi:type="uml:Transition" xmi:id="_TVmQsDqLEeexdPNOK7yxvQ" name="timeout L / send turned msg" source="_WhkS4DqKEeexdPNOK7yxvQ" target="_5XgMczqJEeexdPNOK7yxvQ">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XM0vsDvlEeexdPNOK7yxvQ">
                 <language>C++</language>
                 <body>engine.turnedLeft().send();</body>
@@ -155,41 +155,40 @@ softPwmWrite (MOTOR_RIGHT_PWM, 0) ;</body>
             <subvertex xmi:type="uml:State" xmi:id="_IReRYDqKEeexdPNOK7yxvQ" name="MOVING_FORWARD">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ" name="L, R = forwards">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving forward&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+                <body>    log.log(&quot;Engine is moving forward at speed %d&quot;, MOTOR_SPEED);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 0);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 1);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
-            <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARD">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ" name="L, R = forwards">
+            <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARDS">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ" name="L, R = backwards">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving backward&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+                <body>    log.log(&quot;Engine is moving backward at speed %d&quot;, MOTOR_SPEED);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 1);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 0);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ" name="L = forwards, R = backwards">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is turning right&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;&#xD;
-//timer.informIn(UMLRTTimespec(1,0));</body>
+                <body>    log.log(&quot;Engine is turning right&quot;);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 0);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 0);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_WhkS4DqKEeexdPNOK7yxvQ" name="TURNING_LEFT">
@@ -433,7 +432,8 @@ detection.stopDetection().send();</body>
             </ownedRule>
             <effect xmi:type="uml:OpaqueBehavior" xmi:id="_dSrOcDv3EeexdPNOK7yxvQ">
               <language>C++</language>
-              <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);</body>
+              <body>log.log (&quot;distance greater than threshold: %f > %f&quot;,distance, threshold);
+</body>
             </effect>
             <trigger xmi:type="uml:Trigger" xmi:id="_sANPUDv2EeexdPNOK7yxvQ" event="_nzD3QTvnEeexdPNOK7yxvQ" port="_FQDj8DvsEeexdPNOK7yxvQ"/>
           </transition>
@@ -450,9 +450,9 @@ detection.stopDetection().send();</body>
           <subvertex xmi:type="uml:State" xmi:id="_2eQecDs5EeexdPNOK7yxvQ" name="MOVE_FORWARD">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_D3bfADs6EeexdPNOK7yxvQ" name="start motor and detector">
               <language>C++</language>
-              <body> log.log (&quot;**moving forward&quot;);&#xD;
- engine.moveForward().send();&#xD;
- detection.startDetection().send();&#xD;
+              <body>    log.log (&quot;**moving forward&quot;);
+    engine.moveForward().send();
+    detection.startDetection().send();
 </body>
             </entry>
           </subvertex>
