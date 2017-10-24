@@ -187,7 +187,7 @@
 
 \AtBeginSection[]{
   \begin{frame}<beamer>{Outline}
-    \tableofcontents[currentsection]
+    \tableofcontents[currentsection,hideallsubsections]
   \end{frame}
 }
 
@@ -226,16 +226,18 @@
 \end{frame}
 
 \begin{frame}{Outline}
-  \tableofcontents
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
 \section{Rover}
 
-\begin{frame}{Our subject: the rover}
+\begin{frame}{Our subject: the Papyrus-IC rover}
   \begin{center}
     \includegraphics[width=\textwidth,height=.8\textheight,keepaspectratio]{rover}
   \end{center}
 \end{frame}
+
+\subsection{Controller}
 
 \begin{frame}{The brain: Raspberry Pi 3}
   \begin{center}
@@ -249,6 +251,8 @@
   \item General Purpose I/O pins to talk to sensors and actuators
   \end{itemize}
 \end{frame}
+
+\subsection{Driver}
 
 \begin{frame}{The heart: motor driver board}
 
@@ -266,6 +270,8 @@
 
 \end{frame}
 
+\subsection{Chassis}
+
 \begin{frame}{The body: motorized chassis}
 
   \begin{center}
@@ -280,6 +286,8 @@
   \end{itemize}
 
 \end{frame}
+
+\subsection{Sensor}
 
 \begin{frame}{The ``eyes'': ultrasonic range finder}
 
@@ -297,6 +305,8 @@
 
 \end{frame}
 
+\subsection{Libraries}
+
 \begin{frame}{How do you code for the rover?}
 
   \begin{block}{Available languages and libraries for the Pi}
@@ -313,7 +323,7 @@
     \begin{itemize}
     \item There are many things going on at once in a robot
     \item Keeping track of everything and reacting \alert{in time} is crucial
-    \item We also want to integrate/swap components cleanly
+    \item We also want to integrate/swap hardware cleanly
     \end{itemize}
   \end{block}
 
@@ -338,10 +348,11 @@
     \item UML for Real-Time: time-aware, reactive systems~\cite{selic06}
     \item Extension of a part of UML:
       \begin{itemize}
-      \item Component diagrams $\rightarrow$ UML-RT capsule structure diagrams
-      \item State machine diagrams $\rightarrow$ UML-RT uses a subset of those
+      \item Composite structures $\rightarrow$ UML-RT capsule structures
+      \item State machines $\rightarrow$ UML-RT uses a subset
       \end{itemize}
-    \item Proposed in 2006 by Bran Selic
+    % ROOM: Real-Time Object-Oriented Modelling 
+    \item Based on ROOM language by Bran Selic et al. (1994)
     \item Provides concurrency and execution capabilities
     \end{itemize}
   \end{block}
@@ -365,7 +376,7 @@
   \end{center}
 
   \begin{itemize}
-  \item \structure{Capsules}: pretty much components as you know them
+  \item \structure{Capsules}: each represents a part of our system
   \item Capsule \structure{ports} exchange messages using \structure{protocols}
   \item Here, the program is divided into a control algorithm and an abstraction of the rover hardware
   \end{itemize}
@@ -626,15 +637,40 @@
 % might want to prepare extra slides here
 \backupbegin
 
+\begin{frame}{A timeline of UML-RT and Papyrus-RT}
+  \framesubtitle{Summary given by Ernesto Posse (Zeligsoft) @ Papyrus-IC list}
+
+  \begin{description}[XXXX]
+  \item[1987] Telos project at Bell-Northern Research (acquired by Nortel)
+  \item[1992] Some people from Telos went on to found ObjectTime. Created the
+    language and tool with the same name.
+  \item[1994] Telos language was renamed ``ROOM'' (Real-Time Object-Oriented
+    Modelling). The ROOM book is published, co-authored by Bran, G. Gullekson
+    and P. Ward.
+  \item[1998] Bran and Jim Rumbaugh made a UML profile for ROOM. They called it
+    UML-RT.
+  \item[2000] ObjectTime is acquired by Rational. They create Rational RoseRT
+    based on it.
+  \item[2006] IBM acquires Rational. They create IBM Rational Software Architect
+    Real-Time Edition (RSA-RTE) based on it.
+  \item[2014] CEA, Zeligsoft and others partner to create Papyrus-RT.
+  \end{description}
+\end{frame}
+
 \begin{frame}{Bibliography}
 
   \begin{thebibliography}{40}
-    \bibitem[UML-RT]{selic06}
+  \bibitem[UML-RT]{selic06}
     B.~Selic.
     \newblock Using UML for modeling complex real-time systems.
     \newblock Languages, Compilers, and Tools for Embedded Systems, LNCS vol.\ 1474, pp.\ 250--260.
     \newblock {\small\url{https://link.springer.com/chapter/10.1007/BFb0057795}}
 
+  \setbeamertemplate{bibliography item}[book]
+  \bibitem[ROOM]{selic94}
+    B.~Selic, G.~Gullekson, P.~Ward.
+    \newblock Real-time Object-oriented Modeling.
+    \newblock John Wiley \& Sons, 1994. ISBN 978-0-471-59917-3.
   \end{thebibliography}
 
 \end{frame}
