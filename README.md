@@ -8,4 +8,8 @@ Main changes so far:
 * HC-SR04 is now filtered through a sliding 5-median filter, to avoid stopping the robot due to a single noisy read.
 * Motor speed has been extracted into a property for the top capsule.
 
-The goal is to include some supporting material for a 1.5-hour interactive lecture on an introduction to UML-RT and Papyrus-RT in particular.
+The `slides` directory includes supporting material for a 1.5-hour interactive lecture on an introduction to UML-RT and Papyrus-RT in particular.
+
+The `videos` directory contains videos demonstrating the behaviour achieved by the various branches in this repository.
+
+For step-by-step instructions on how to get started, you can follow [this blog post](https://xmleye.wordpress.com/2017/10/17/running-uml-rt-models-on-a-raspberry-pi-based-rover/) for GNU/Linux environments.
