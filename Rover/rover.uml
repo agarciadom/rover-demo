@@ -155,41 +155,40 @@ softPwmWrite (MOTOR_RIGHT_PWM, 0) ;</body>
             <subvertex xmi:type="uml:State" xmi:id="_IReRYDqKEeexdPNOK7yxvQ" name="MOVING_FORWARD">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_WwcE0DsYEeexdPNOK7yxvQ">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving forward&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+                <body>    log.log(&quot;Engine is moving forward at speed %d&quot;, MOTOR_SPEED);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 0);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 1);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_RwzSkDqKEeexdPNOK7yxvQ" name="MOVING_BACKWARD">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_c8w0cDspEeexdPNOK7yxvQ">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is moving backward&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 1);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;</body>
+                <body>    log.log(&quot;Engine is moving backwards at speed %d&quot;, MOTOR_SPEED);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 1);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 0);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_U2eqEDqKEeexdPNOK7yxvQ" name="TURNING_RIGHT">
               <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ULrj4DsqEeexdPNOK7yxvQ">
                 <language>C++</language>
-                <body>log.log(&quot;Engine is turning right&quot;);&#xD;
-digitalWrite(MOTOR_LEFT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_LEFT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;&#xD;
-&#xD;
-digitalWrite(MOTOR_RIGHT_ENABLE, 1);&#xD;
-digitalWrite(MOTOR_RIGHT_DIRECTION, 0);&#xD;
-softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;&#xD;
-//timer.informIn(UMLRTTimespec(1,0));</body>
+                <body>    log.log(&quot;Engine is turning right&quot;);
+    digitalWrite(MOTOR_LEFT_ENABLE, 1);
+    digitalWrite(MOTOR_LEFT_DIRECTION, 0);
+    softPwmWrite (MOTOR_LEFT_PWM, MOTOR_SPEED) ;
+    digitalWrite(MOTOR_RIGHT_ENABLE, 1);
+    digitalWrite(MOTOR_RIGHT_DIRECTION, 0);
+    softPwmWrite (MOTOR_RIGHT_PWM, MOTOR_SPEED) ;
+</body>
               </entry>
             </subvertex>
             <subvertex xmi:type="uml:State" xmi:id="_WhkS4DqKEeexdPNOK7yxvQ" name="TURNING_LEFT">
@@ -495,9 +494,10 @@ detection.stopDetection().send();</body>
           <subvertex xmi:type="uml:State" xmi:id="_Up9oEDs6EeexdPNOK7yxvQ" name="MOVE_BACKWARDS">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_dTEy8Ds6EeexdPNOK7yxvQ" name="go backwards, wait 1 second">
               <language>C++</language>
-              <body>    log.log(&quot;**moving bacwards&quot;);&#xD;
-    engine.moveBackward().send();&#xD;
-    timer.informIn(UMLRTTimespec(1,0));</body>
+              <body>    log.log(&quot;**moving bacwards&quot;);
+    engine.moveBackward().send();
+    timer.informIn(UMLRTTimespec(1,0));
+</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_iBRAYDs6EeexdPNOK7yxvQ" name="STOP_MOVING_BACKWARDS">
@@ -510,8 +510,10 @@ detection.stopDetection().send();</body>
           <subvertex xmi:type="uml:State" xmi:id="_qOA_YDs6EeexdPNOK7yxvQ" name="ROTATING">
             <entry xmi:type="uml:OpaqueBehavior" xmi:id="_v3VYUDs6EeexdPNOK7yxvQ" name="turn 138 degrees">
               <language>C++</language>
-              <body>log.log(&quot;**rotating&quot;);&#xD;
-    engine.turnRight(138).send();</body>
+              <body>    log.log(&quot;**rotating&quot;);
+    engine.turnRight(138).send();
+    detection.startDetection().send();
+</body>
             </entry>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_oHWwoDwFEeexdPNOK7yxvQ" name="TIME_PAUSE">
