@@ -183,7 +183,7 @@
 \title{Rover control with UML-RT: an introduction}
 \author{Antonio García-Domínguez}
 \institute{Aston University}
-\date{CS2020/CS2090/CS4340 --- Software Engineering\\October 28th, 2018}
+\date{CS2020/CS2090/CS4340 --- Software Engineering\\October 16th, 2019}
 
 \AtBeginSection[]{
   \begin{frame}<beamer>{Outline}
@@ -482,53 +482,42 @@
 
 \section{Exercises}
 
-\begin{frame}{Exercise: make the rover back up and rotate}
+\begin{frame}{Backing up: fill in the gaps!}
 
-  \begin{columns}
-    \column{.49\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{backup-statemachine-ex_backup}
 
-    Modify the ``ControlAlgorithm'' state machine. After
-    getting too close and stopping, it should:
-
-    \begin{enumerate}
-    \item Wait 2 seconds
-    \item Go backwards for 1 second
-    \item Turn right 138 degrees
-    \item Stop
-    \item Go forward again
-    \end{enumerate}
-
-    Feel free to form groups! We'll be giving handouts.
-
-    \column{.51\textwidth}
-    \begin{block}{Engine protocol}
-      \begin{itemize}
-      \item out moveForward()
-      \item out moveBackward()
-      \item out stop()
-      \item out turnLeft(angle)
-      \item out turnRight(angle)
-      \item in stopped()
-      \item in turnedLeft()
-      \item in turnedRight()
-      \end{itemize}
-    \end{block}
-
-    \begin{block}{Timer protocol}
-      \begin{itemize}
-      \item out informIn(secs, nanosecs)
-      \item in timeout()
-      \end{itemize}
-    \end{block}
-
-  \end{columns}
+    Write down the entry actions for the new states.
+  \end{center}
 
 \end{frame}
 
-\begin{frame}{Solution for the exercise}
+\begin{frame}{Solution for backing up}
 
   \begin{center}
-    \includegraphics[width=\textwidth]{backup-statemachine}
+    \includegraphics[width=\textwidth]{backup-statemachine-sol_backup}
+
+    \phantom{Write down the entry actions for the new states.}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Turning around a bit: fill in the gaps!}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{backup-statemachine-ex_rotating}
+
+    Write down the entry actions for the new states.
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Solution for backing up}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{backup-statemachine-full}
+
+    \phantom{Write down the entry actions for the new states.}
   \end{center}
 
 \end{frame}
@@ -547,7 +536,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Exercise: how would you improve the rover?}
+\begin{frame}{How would you improve the rover?}
 
   \begin{block}{Problems with the latest model}
     \begin{itemize}
@@ -559,15 +548,12 @@
 
   \pause
 
-  \begin{block}{In groups}
+  \begin{block}{Ideas?}
+    Let's brainstorm for a bit! Take into account:
     \begin{itemize}
-    \item Come up with an idea to improve the rover's behaviour
-    \item You can change the protocols if you like
-    \item You can add extra ultrasonic range finders, too
-      \begin{itemize}
-      \item Where would you put them, though?
-      \end{itemize}
-    \item How would you implement your idea in UML-RT?
+    \item System complexity
+    \item Total cost of the robot
+    \item Energy use
     \end{itemize}
   \end{block}
 
